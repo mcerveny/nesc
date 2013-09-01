@@ -1360,8 +1360,12 @@ void generate_c_code(const char *target_name, nesc_declaration program,
   dd_scan (mod, modules)
     prt_nesc_module(cg, DD_GET(nesc_declaration, mod));
 
+  outputln("/* unparse code begin */"); 
+
   prt_inline_functions(callgraph);
   prt_noninline_functions(callgraph);
+
+  outputln("/* unparse code end */"); 
 
   if (use_nido)
     {
